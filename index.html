@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nursing Home Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            color: #555;
+        }
+        .question {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .options input[type="radio"],
+        .options input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .btn-container {
+            text-align: right;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nursing Home</h1>
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <div class="question active">
+                <label>1. How satisfied are you with the overall care provided at our nursing home facility?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="overall_care" value="very_satisfied">
+                        Very Satisfied
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="overall_care" value="satisfied">
+                        Satisfied
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="overall_care" value="dissatisfied">
+                        Dissatisfied
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="overall_care" value="very_dissatisfied">
+                        Very Dissatisfied
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>2. What factors influenced your decision to choose our nursing home for yourself or your loved one?</label>
+                <div class="options">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="decision_factors" value="location">
+                        Location
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="decision_factors" value="cost">
+                        Cost
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="decision_factors" value="services">
+                        Services
+                    </label>
+                    <label class="custom-checkbox">
+                        <input type="checkbox" name="decision_factors" value="reputation">
+                        Reputation
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>3. Did you find the admission process to be smooth and efficient?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="admission_process" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="admission_process" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+            
+            <div class="question">
+                <label>4. How would you rate the cleanliness and comfort of the living accommodations?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="cleanliness" value="excellent">
+                        Excellent
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="cleanliness" value="good">
+                        Good
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="cleanliness" value="fair">
+                        Fair
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="cleanliness" value="poor">
+                        Poor
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>5. Were our staff members compassionate and attentive to your needs or the needs of your loved one?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="staff_compassion" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="staff_compassion" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>6. Did you feel that your medical or personal care needs were adequately addressed?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="care_needs" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="care_needs" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>7. Were you satisfied with the range of activities and programs offered for residents?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="activities_satisfaction" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="activities_satisfaction" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>8. How would you rate the quality and variety of meals provided?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="meal_quality" value="excellent">
+                        Excellent
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="meal_quality" value="good">
+                        Good
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="meal_quality" value="fair">
+                        Fair
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="meal_quality" value="poor">
+                        Poor
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>9. How likely are you to recommend our nursing home to others seeking similar care?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="recommend" value="very_likely">
+                        Very Likely
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="recommend" value="likely">
+                        Likely
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="recommend" value="unlikely">
+                        Unlikely
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="recommend" value="very_unlikely">
+                        Very Unlikely
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>10. Did you feel respected and valued as a resident or family member?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="respect_valued" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="respect_valued" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>11. Did you encounter any challenges or concerns during your time at our nursing home?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="challenges" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="challenges" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>12. How would you rate the communication between staff and residents/family members?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="communication" value="excellent">
+                        Excellent
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="communication" value="good">
+                        Good
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="communication" value="fair">
+                        Fair
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="communication" value="poor">
+                        Poor
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>13. Were you satisfied with the medical attention and support provided by our nursing staff?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="medical_attention" value="yes">
+                        Yes
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="medical_attention" value="no">
+                        No
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>14. How would you rate the safety and security measures in place within our facility?</label>
+                <div class="options">
+                    <label class="custom-radio">
+                        <input type="radio" name="safety_security" value="excellent">
+                        Excellent
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="safety_security" value="good">
+                        Good
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="safety_security" value="fair">
+                        Fair
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="safety_security" value="poor">
+                        Poor
+                    </label>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn" onclick="nextQuestion()">Next</button>
+                </div>
+            </div>
+
+            <div class="question">
+                <label>15. Do you have any suggestions for improving our nursing home services or amenities?</label>
+                <textarea name="suggestions" rows="4" required></textarea>
+                <div class="btn-container">
+                    <button type="submit" class="btn" onclick="vald()">Submit Feedback</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        let currentQuestion = 0;
+        const questions = document.querySelectorAll('.question');
+
+        function nextQuestion() {
+            questions[currentQuestion].classList.remove('active');
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                questions[currentQuestion].classList.add('active');
+            }
+        }
+
+        function vald(){
+            alert("Thank You For The Feedback");
+        }
+    </script>
+</body>
+</html>
