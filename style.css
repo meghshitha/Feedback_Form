@@ -1,0 +1,135 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background-color: black;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,h2 {
+    text-align: center;
+    color: #333;
+}
+h1 span{
+    color: orangered;
+}
+
+.question {
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    color: black;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.custom-radio, .custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.custom-radio input, .custom-checkbox input {
+    display: none;
+}
+
+.custom-radio-button, .custom-checkbox-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+
+.custom-checkbox-box {
+    border-radius: 4px;
+}
+
+.custom-radio-button::after, .custom-checkbox-box::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #555;
+    background: orangered;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
+}
+
+.custom-checkbox-box::after {
+    border-radius: 2px;
+}
+
+input:checked + .custom-radio-button::after, input:checked + .custom-checkbox-box::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    width: 20%;
+    margin-left: 40%;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+button:hover {
+    color: orangered;
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 8px;
+
+
+
+}
+
+@media (max-width: 600px) {
+    .options {
+        flex-direction: column;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
